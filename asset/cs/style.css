@@ -156,4 +156,14 @@ span {
     margin-left: 50px;
 }
 
+.hero-img img {
+    width: 451px;
+    height: 800px;
+    border-radius: 30px;
+}
+
+.controler{
+    margin-top: 100px;
+}
+
 /* social icon control of foter */
