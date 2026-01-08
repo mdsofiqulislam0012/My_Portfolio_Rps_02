@@ -1,0 +1,79 @@
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  mobileMenu.classList.toggle("show");
+});
+
+
+// ===========>form validation<=============
+function validateForm(e) {
+     e.preventDefault();
+    let isValid = true;
+
+
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+
+    // Error elements
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const messageError = document.getElementById("messageError");
+
+
+    // Reset errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    messageError.textContent = "";
+
+
+    // Name validation
+    if (name === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+    } else if (name.length < 3) {
+        nameError.textContent = "Name must be at least 3 characters";
+        isValid = false;
+    }
+
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Enter a valid email address";
+        isValid = false;
+    }
+
+    // password validation
+    if(password === ""){
+      passwordError.textContent = "Password is required";
+      isValid = false;
+    } else if(password.length < 6){
+      passwordError.textContent = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+
+    // Message validation
+    if (message === "") {
+        messageError.textContent = "Message is required";
+        isValid = false;
+    } else if (message.length < 10) {
+        messageError.textContent = "Message must be at least 10 characters";
+        isValid = false;
+    }
+
+
+    return isValid;
+}
+
+// ===========>form validation<=============
